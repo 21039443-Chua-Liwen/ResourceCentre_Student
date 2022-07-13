@@ -123,8 +123,8 @@ public class ResourceCentreTest {
 		//test if the expected output string same as the list of Chromebooks retrieved from the SourceCentre
 		allChromebook= ResourceCentre.retrieveAllChromebook(chromebookList);
 
-		testOutput = String.format("%-10s %-30s %-10s %-10s %-20s\n","CB0011", "My Google Chromebook 1st", "Yes","", "Mac OS");
-		testOutput += String.format("%-10s %-30s %-10s %-10s %-20s\n","CB0012", "SAMSUNG Chromebook 4+", "Yes", "","Win 10");
+		testOutput = String.format("%-10s %-30s %-10s %-10s %-20s\n","CB0011", "My Google Chromebook 1st", "Yes", "", "Mac OS");
+		testOutput += String.format("%-10s %-30s %-10s %-10s %-20s\n","CB0012", "SAMSUNG Chromebook 4+", "Yes", "", "Win 10");
 			
 		assertEquals("Check that ViewAllChromebooklist", testOutput, allChromebook);
 	}
@@ -142,7 +142,6 @@ public class ResourceCentreTest {
 		assertTrue("Test if an available item is ok to loan?", ok);
 		assertFalse(camcorderList.get(0).getIsAvailable());
 		assertEquals(camcorderList.get(0).getDueDate(),"8-8-2020");
-		
 				
 		//error condition
 		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "8-8-2020" );
@@ -246,5 +245,4 @@ public class ResourceCentreTest {
 		chromebookList = null;
 
 	}
-
 }
