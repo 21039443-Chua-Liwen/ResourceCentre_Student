@@ -32,7 +32,6 @@ public class ResourceCentreTest {
 		cb2 = new Chromebook("CB0012", "SAMSUNG Chromebook 4+", "Win 10");
 		cb3 = new Chromebook("CB0013", "HUAWEI Magicbook 100+", "Mac 10");
 		
-		
 		camcorderList= new ArrayList<Camcorder>();
 		chromebookList= new ArrayList<Chromebook>();
 	}
@@ -56,6 +55,7 @@ public class ResourceCentreTest {
 		assertEquals("Test that Camcorder arraylist size is 3?", 3, camcorderList.size());
 		assertSame("Test that Camcorder is added same as 3rd item of the list?", cc3, camcorderList.get(2));
 	}
+	
 	@Test
 	public void testAddChromebook() {
 		//fail("Not yet implemented");
@@ -102,6 +102,7 @@ public class ResourceCentreTest {
 		assertEquals("Check that ViewAllCamcorderlist", testOutput, allCamcorder);
 		
 	}
+	
 	@Test
 	public void testRetrieveAllChromebook() {
 		//fail("Not yet implemented");
@@ -126,6 +127,7 @@ public class ResourceCentreTest {
 				testOutput += String.format("%-10s %-30s %-10s %-10s %-20s\n","CB0012", "SAMSUNG Chromebook 4+", "Yes", "", "Win 10");
 			
 				assertEquals("Check that ViewAllChromebooklist", testOutput, allChromebook);
+
 	}
 
 	@Test
@@ -133,7 +135,6 @@ public class ResourceCentreTest {
 
 		//boundary
 		assertNotNull("test if there is valid Camcorder arraylist to loan from", camcorderList);
-		
 		ResourceCentre.addCamcorder(camcorderList, cc1);
 		
 		// normal
@@ -141,7 +142,6 @@ public class ResourceCentreTest {
 		assertTrue("Test if an available item is ok to loan?", ok);
 		assertFalse(camcorderList.get(0).getIsAvailable());
 		assertEquals(camcorderList.get(0).getDueDate(),"8-8-2020");
-		
 				
 		//error condition
 		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "8-8-2020" );
@@ -156,11 +156,10 @@ public class ResourceCentreTest {
 		//error condition
 		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0013", "8-8-2020" );
 		assertFalse("Test that non-esiting item is NOT ok to loan?", ok);
-
-
 	}
 	
 	@Test
+
 	public void testDoLoanChromebook() {
 		//fail("Not yet implemented");
 		// write your code here
@@ -190,6 +189,7 @@ public class ResourceCentreTest {
 				ok = ResourceCentre.doLoanChromebook(chromebookList, "CB0013", "8-8-2020" );
 				assertFalse("Test that non-esiting item is NOT ok to loan?", ok);
 		
+
 	}
 	
 	@Test
@@ -197,19 +197,23 @@ public class ResourceCentreTest {
 		//boundary
 		assertNotNull("Test if there is valid Camcorder arraylist to add to", camcorderList);
 		ResourceCentre.addCamcorder(camcorderList, cc1);
+		
 		//error
 		Boolean isReturned = ResourceCentre.doReturnCamcorder(camcorderList, "CC0011");
 		assertFalse("Test if available camcorder CC0011 is returned -false?", isReturned);		
+		
 		//normal
 		ResourceCentre.addCamcorder(camcorderList, cc2);
 		cc2.setIsAvailable(false);
 		isReturned = ResourceCentre.doReturnCamcorder(camcorderList, "CC0012");
 		assertTrue("Test if loaned out camcorder CC0012 is returned- true", isReturned);
+
 		//error
 		isReturned = ResourceCentre.doReturnCamcorder(camcorderList, "CC0013");
+
 		assertFalse("Test if non-existing camcorder CC0013 is returned - false?", isReturned);
-		
 	}
+	
 	@Test
 	public void testDoReturnChromebook() {
 		//fail("Not yet implemented");
@@ -238,7 +242,5 @@ public class ResourceCentreTest {
 		cb2 = null;
 		camcorderList = null;
 		chromebookList = null;
-
 	}
-
 }
