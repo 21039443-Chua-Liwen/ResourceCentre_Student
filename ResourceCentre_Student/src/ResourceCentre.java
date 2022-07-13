@@ -148,6 +148,7 @@ public class ResourceCentre {
 	public static String retrieveAllChromebook(ArrayList<Chromebook> chromebookList) {
 		String output = "";
 		// write your code here
+<<<<<<< HEAD
 
 		for (int i = 0; i < chromebookList.size(); i++) {
 
@@ -156,14 +157,30 @@ public class ResourceCentre {
 					ResourceCentre.showAvailability(chromebookList.get(i).getIsAvailable()),
 					chromebookList.get(i).getDueDate(),chromebookList.get(i).getOs());
 		}
+=======
+		for (int i = 0; i < chromebookList.size(); i++) {
+
+			output += String.format("%-10s %-30s %-10s %-10s %-20s\n", chromebookList.get(i).getAssetTag(),
+					chromebookList.get(i).getDescription(), 
+					ResourceCentre.showAvailability(chromebookList.get(i).getIsAvailable()),
+					chromebookList.get(i).getDueDate(),chromebookList.get(i).getOs());
+		}
+		
+>>>>>>> branch 'master' of https://github.com/21039443-Chua-Liwen/ResourceCentre_Student
 		return output;
 	}
 	
 	public static void viewAllChromebook(ArrayList<Chromebook> chromebookList) {
 		ResourceCentre.setHeader("CHROMEBOOK LIST");
+<<<<<<< HEAD
 
 		String output = String.format("%-10s %-30s %-10s %-10s %-20s\n", "ASSET TAG", "DESCRIPTION",
 				"AVAILABLE", "DUE DATE","OPTICAL ZOOM");
+=======
+		String output = String.format("%-10s %-30s %-10s %-10s %-20s\n", "ASSET TAG", "DESCRIPTION",
+				"AVAILABLE", "DUE DATE","OPTICAL ZOOM");
+		
+>>>>>>> branch 'master' of https://github.com/21039443-Chua-Liwen/ResourceCentre_Student
 		output = retrieveAllChromebook(chromebookList);
 		System.out.println(output);
 	}
@@ -186,6 +203,10 @@ public class ResourceCentre {
 		Chromebook cb =null;
 		
 		// write your code here
+<<<<<<< HEAD
+=======
+		
+>>>>>>> branch 'master' of https://github.com/21039443-Chua-Liwen/ResourceCentre_Student
 		return cb;
 		
 	}	
@@ -236,8 +257,14 @@ public class ResourceCentre {
 				chromebookList.get(i).setDueDate(dueDate);
 				
 				isLoaned = true;
+<<<<<<< HEAD
 				}	
 			}
+=======
+				
+			}
+		}
+>>>>>>> branch 'master' of https://github.com/21039443-Chua-Liwen/ResourceCentre_Student
 		return isLoaned;
 	}
 	
@@ -246,12 +273,22 @@ public class ResourceCentre {
 		ResourceCentre.viewAllChromebook(chromebookList);
 		String tag = Helper.readString("Enter asset tag > ");
 		String due = Helper.readString("Enter due date > ");
+<<<<<<< HEAD
 		Boolean isLoaned =doLoanChromebook(chromebookList, tag, due);
 		if (isLoaned == false) {
 			System.out.println("Invalid asset tag");
 		} else {
 			System.out.println("Chromebook " + tag + " loaned out");
 		}
+=======
+		Boolean isLoaned = doLoanChromebook(chromebookList, tag, due);
+		if (isLoaned == false) {
+			System.out.println("Invalid asset tag");
+		} else {
+			System.out.println("Chromebook " + tag + " loaned out");
+		}
+		
+>>>>>>> branch 'master' of https://github.com/21039443-Chua-Liwen/ResourceCentre_Student
 	}
 	
 	//================================= Option 4 Return an item (CRUD - Update)=================================
@@ -285,7 +322,10 @@ public class ResourceCentre {
 	public static boolean doReturnChromebook(ArrayList<Chromebook> chromebookList,String tag){
 		boolean isReturned = false;
 		// write your code here
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/21039443-Chua-Liwen/ResourceCentre_Student
 		for (int i = 0; i < chromebookList.size(); i++) {
 			if (tag.equalsIgnoreCase(chromebookList.get(i).getAssetTag())
 					&& chromebookList.get(i).getIsAvailable() == false) {
@@ -297,6 +337,7 @@ public class ResourceCentre {
 		}
 		return isReturned;
 	}
+
 	public static void returnChromebook(ArrayList<Chromebook> chromebookList) {
 		// write your code here
 		ResourceCentre.viewAllChromebook(chromebookList);
@@ -306,7 +347,11 @@ public class ResourceCentre {
 		if (isReturned == false) {
 			System.out.println("Invalid asset tag");
 		} else {
+<<<<<<< HEAD
 			System.out.println("Chromebook " + tag + " returned");	
 			}
+=======
+			System.out.println("Chromebook " + tag + " returned");
+>>>>>>> branch 'master' of https://github.com/21039443-Chua-Liwen/ResourceCentre_Student
 		}
 	}
