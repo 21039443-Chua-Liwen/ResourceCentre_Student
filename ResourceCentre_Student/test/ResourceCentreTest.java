@@ -32,7 +32,6 @@ public class ResourceCentreTest {
 		cb2 = new Chromebook("CB0012", "SAMSUNG Chromebook 4+", "Win 10");
 		cb3 = new Chromebook("CB0013", "HUAWEI Magicbook 100+", "Mac 10");
 		
-		
 		camcorderList= new ArrayList<Camcorder>();
 		chromebookList= new ArrayList<Chromebook>();
 	}
@@ -56,12 +55,11 @@ public class ResourceCentreTest {
 		assertEquals("Test that Camcorder arraylist size is 3?", 3, camcorderList.size());
 		assertSame("Test that Camcorder is added same as 3rd item of the list?", cc3, camcorderList.get(2));
 	}
+	
 	@Test
 	public void testAddChromebook() {
 		//fail("Not yet implemented");
-		// write your code here 
-		
-		// Item list is not null, so that can add a new item
+		// WRITE OWN CODE
 		assertNotNull("Test if there is valid Camcorder arraylist to add to", chromebookList);
 				
 		//Given an empty list, after adding 1 item, the size of the list is 1
@@ -76,6 +74,7 @@ public class ResourceCentreTest {
 		ResourceCentre.addChromebook(chromebookList, cb3);
 		assertEquals("Test that Chromebook arraylist size is 3?", 3, chromebookList.size());
 		assertSame("Test that Chromebook is added same as 3rd item of the list?", cb3, chromebookList.get(2));
+
 	}
 	
 	@Test
@@ -102,11 +101,12 @@ public class ResourceCentreTest {
 		assertEquals("Check that ViewAllCamcorderlist", testOutput, allCamcorder);
 		
 	}
+	
 	@Test
 	public void testRetrieveAllChromebook() {
 		//fail("Not yet implemented");
 		// write your code here
-		
+
 		// Test if Item list is not null but empty, so that can add a new item
 		assertNotNull("Test if there is valid Chromebook arraylist to add to", chromebookList);
 				
@@ -156,8 +156,6 @@ public class ResourceCentreTest {
 		//error condition
 		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0013", "8-8-2020" );
 		assertFalse("Test that non-esiting item is NOT ok to loan?", ok);
-
-
 	}
 	
 	@Test
@@ -188,6 +186,7 @@ public class ResourceCentreTest {
 		//error condition
 		ok = ResourceCentre.doLoanChromebook(chromebookList, "CB0013", "8-8-2020" );
 		assertFalse("Test that non-esiting item is NOT ok to loan?", ok);
+
 	}
 	
 	@Test
@@ -205,7 +204,7 @@ public class ResourceCentreTest {
 		cc2.setIsAvailable(false);
 		isReturned = ResourceCentre.doReturnCamcorder(camcorderList, "CC0012");
 		assertTrue("Test if loaned out camcorder CC0012 is returned- true", isReturned);
-		
+
 		//error
 		isReturned = ResourceCentre.doReturnCamcorder(camcorderList, "CC0013");
 		assertFalse("Test if non-existing camcorder CC0013 is returned - false?", isReturned);
@@ -233,6 +232,7 @@ public class ResourceCentreTest {
 		//error
 		isReturned = ResourceCentre.doReturnChromebook(chromebookList, "CB0013");
 		assertFalse("Test if non-existing Chromebook CB0013 is returned - false?", isReturned);
+
 	}
 	
 	@After
@@ -243,6 +243,5 @@ public class ResourceCentreTest {
 		cb2 = null;
 		camcorderList = null;
 		chromebookList = null;
-
 	}
 }
